@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#031521"><title>ABYSS RUN — Into the Blue</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/game.css') }}">
+</head>
+<body>
+<main class="shell">
+<header class="topbar">
+  <a class="brand" href="/"><b>◈</b> ABYSS <span>RUN</span></a>
+  <div class="top-status"><i></i> DEEP OCEAN EXPEDITION / SECTOR 07</div>
+  <button id="soundBtn" class="outline">♫ SOUND ON</button>
+</header>
+<section class="game-frame">
+<canvas id="gameCanvas"></canvas>
+<div class="hud hidden" id="hud">
+ <div class="meters">
+  <div class="stat"><label>OXYGEN <b id="oxygenText">100%</b></label><div class="bar"><i id="oxygenFill"></i></div></div>
+  <div class="stat"><label>SUIT INTEGRITY <b id="healthText">100%</b></label><div class="bar"><i id="healthFill"></i></div></div>
+ </div>
+ <div class="numbers"><div>DEPTH<strong id="depthText">000 m</strong></div><div>SCORE<strong id="scoreText">0000</strong></div></div>
+ <div class="mission" id="missionText">MISSION 01 · FIND THE LOST BEACON</div>
+</div>
+<div class="overlay" id="startScreen">
+ <div class="eyebrow">AN UNDERWATER SURVIVAL EXPERIENCE</div>
+ <h1>ABYSS <em>RUN</em></h1><h2>THE OCEAN DOESN'T GIVE UP ITS SECRETS.</h2>
+ <p>Descend into the unknown. Recover lost research data.<br>Make it back before your oxygen runs out.</p>
+ <button class="primary" id="startBtn">▶ BEGIN EXPEDITION</button>
+ <div class="controls">WASD / ARROWS TO SWIM <span>SPACE TO BOOST</span> ESC TO PAUSE</div>
+</div>
+<div class="overlay compact hidden" id="pauseScreen">
+ <div class="eyebrow">EXPEDITION SUSPENDED</div><h1>PAUSED</h1><p>Your diver is safe for now.</p>
+ <button class="primary" id="resumeBtn">RESUME DIVE</button><button class="plain" id="restartPauseBtn">RESTART EXPEDITION</button>
+</div>
+<div class="overlay compact hidden" id="endScreen">
+ <div class="eyebrow" id="endEyebrow">EXPEDITION REPORT</div><h1 id="endTitle">DIVE COMPLETE</h1><p id="endMessage"></p>
+ <div class="results"><div>FINAL SCORE<strong id="finalScore">0</strong></div><div>MAX DEPTH<strong id="finalDepth">0 m</strong></div></div>
+ <label class="name-label" for="playerName">DIVER CALLSIGN</label><input id="playerName" maxlength="18" value="DIVER">
+ <button class="primary" id="saveBtn">SAVE & DIVE AGAIN</button><button class="plain" id="retryBtn">DIVE AGAIN WITHOUT SAVING</button><small id="saveNote"></small>
+</div>
+<div class="corner">PELAGIC RESEARCH DIVISION · BUILD 01.0</div>
+<div class="touch" id="touchControls"><button data-dir="up">▲</button><div><button data-dir="left">◀</button><button data-dir="down">▼</button><button data-dir="right">▶</button></div></div>
+</section>
+<footer><span>● SYSTEM STATUS: <b>OPERATIONAL</b></span><span class="footer-mid">EXPLORE · COLLECT · SURVIVE</span><button id="leaderboardBtn" class="outline">⌁ HIGH SCORES</button></footer>
+</main>
+<div class="modal hidden" id="leaderboardModal"><section><button id="closeLeaderboard" class="close">×</button><div class="eyebrow">PELAGIC RESEARCH DIVISION</div><h2>TOP DIVERS</h2><div id="scoreList">Loading…</div></section></div>
+<script src="{{ url_for('static', filename='js/game.js') }}" defer></script>
+</body></html>
